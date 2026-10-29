@@ -1,0 +1,50 @@
+{
+  "name": "@izapai/cli",
+  "version": "0.1.0",
+  "description": "The izap command-line tool for the iZap REST API: WhatsApp chats, messages, templates and transmissions from your terminal.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/versariai/izap-cli.git"
+  },
+  "homepage": "https://devs.izap.ai",
+  "bugs": {
+    "url": "https://github.com/versariai/izap-cli/issues",
+    "email": "support@izap.ai"
+  },
+  "keywords": [
+    "izap",
+    "whatsapp",
+    "cli",
+    "api"
+  ],
+  "bin": {
+    "izap": "./dist/bin.js"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "npm run typecheck && vitest run",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && chmod +x dist/bin.js",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "dependencies": {
+    "@izapai/sdk": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
